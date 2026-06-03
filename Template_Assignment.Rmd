@@ -40,7 +40,7 @@ Use APA referencing throughout your document. [Here's a link to some explanation
 
 Include the following:
 
--   Why is this relevant?
+-   Why is this relevant? [@smith2020]
 
 -   ...
 
