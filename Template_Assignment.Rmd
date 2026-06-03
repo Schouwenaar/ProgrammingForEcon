@@ -9,28 +9,19 @@ bibliography: references.bib
 # Set-up your environment
 
 ```{r package_install, include=FALSE}
-#install.packages("tidyverse")
+install.packages("tidyverse")
 install.packages("yaml")
 install.packages("rmarkdown")
-#install.packages(c("yaml", "rmarkdown"))
 
 ```
 
 ```{r packages}
-#similar
 require(tidyverse)
 require(rmarkdown)
 require(yaml)
 library(tidyr)
 library(writexl)
 library(readxl)
-
-kittens <- read.csv("data/kittens.csv")
-mean(kittens$number_extra_cute_kittens)
-
-kittens$total <- kittens$number_extra_cute_kittens + kittens
-
-#Loading in my data
 ```
 
 # Title Page
