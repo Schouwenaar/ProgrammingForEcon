@@ -3,6 +3,9 @@ title: "Template"
 author: "Studentnames and studentnumbers here"
 date: "`r Sys.Date()`"
 output: pdf_document
+bibliography: references.bib
+csl: apa.csl
+
 ---
 
 # Set-up your environment
@@ -11,16 +14,20 @@ output: pdf_document
 install.packages("tidyverse")
 install.packages("yaml")
 install.packages("rmarkdown")
+
 ```
 
 ```{r packages}
 require(tidyverse)
 require(rmarkdown)
 require(yaml)
+library(tidyr)
+library(writexl)
+library(readxl)
 ```
 
 # Title Page
-
+A new sentence
 Include your names
 
 Include the tutorial group number
@@ -35,7 +42,7 @@ Use APA referencing throughout your document. [Here's a link to some explanation
 
 Include the following:
 
--   Why is this relevant?
+-   Why is this relevant? [@smith2020]
 
 -   ...
 
