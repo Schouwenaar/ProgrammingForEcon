@@ -56,12 +56,19 @@ Preferably from a URL, but if not, make sure to download the data and store it i
 #dataset <- midwest
 
 library(readr)
-Gezondheid_leefstijl_zorggebruik_en_aanbod_doodsoorzaken_kerncijfers_03062026_132800 <- read_delim("~/Downloads/Gezondheid__leefstijl__zorggebruik_en__aanbod__doodsoorzaken__kerncijfers_03062026_132800.csv", 
-    delim = ";", escape_double = FALSE, trim_ws = TRUE, 
-    skip = 4)
-View(Gezondheid_leefstijl_zorggebruik_en_aanbod_doodsoorzaken_kerncijfers_03062026_132800)
+#Gezondheid_leefstijl_zorggebruik_en_aanbod_doodsoorzaken_kerncijfers_03062026_132800 <- #read_delim("~/Downloads/Gezondheid__leefstijl__zorggebruik_en__aanbod__doodsoorzaken__kerncijfers_03062026_132800.csv", 
+#    delim = ";", escape_double = FALSE, trim_ws = TRUE, 
+#    skip = 4)
+#View(Gezondheid_leefstijl_zorggebruik_en_aanbod_doodsoorzaken_kerncijfers_03062026_132800)
 
-write_csv(Gezondheid_leefstijl_zorggebruik_en_aanbod_doodsoorzaken_kerncijfers_03062026_132800, "data/gezondheid.csv")
+#write_csv(Gezondheid_leefstijl_zorggebruik_en_aanbod_doodsoorzaken_kerncijfers_03062026_132800, "data/gezondheid.csv")
+
+a_fun_name <- read_delim("data/gezondheid.csv")
+
+a_fun_name$...1 <- NULL
+
+
+write_csv(a_fun_name, "data/gezondheid_changed.csv")
 ```
 
 midwest is an example dataset included in the tidyverse package
