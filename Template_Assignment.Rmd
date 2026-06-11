@@ -133,6 +133,43 @@ Variable 2
 
 ```{r visualise_map}
 
+library(ggplot2)
+library(sf)
+library(geodata)   
+library(dplyr)
+
+
+#1. Load province boundaries straight from PDOK/CBS 
+#You can also use the geodata package, but rivers/water borders are not always present
+provinces <- st_read(paste0(
+  "https://service.pdok.nl/cbs/gebiedsindelingen/2024/wfs/v1_0?",
+  "request=GetFeature&service=WFS&version=2.0.0",
+  "&typeName=provincie_gegeneraliseerd&outputFormat=application/json"
+))
+
+# Check the province name column
+provinces$statnaam
+
+# 2. For the example we use simulated data 
+province_data <- data.frame(
+  statnaam = c("Drenthe", "Flevoland", "Fryslân", "Gelderland",
+               "Groningen", "Limburg", "Noord-Brabant", "Noord-Holland",
+               "Overijssel", "Utrecht", "Zeeland", "Zuid-Holland"),
+  value    = c(42, 67, 35, 78, 51, 63, 85, 91, 58, 88, 29, 95)
+)
+
+# 3. Join 
+nl_map <- provinces |> left_join(province_data, by = "statnaam")
+
+# 4. Plot ---
+ggplot(nl_map) +
+  geom_sf(aes(fill = value), color = "white", linewidth = 0.4) +
+  scale_fill_gradient(name = "Value", low = "#e8f5e9", high = "#1b5e20") +
+  labs(
+    title   = "Simulated values by Dutch province"  ) +
+  theme_void() +
+  theme(plot.title = element_text(hjust = 0.5, face = "bold"))
+
 ```
 
 Here you provide a description of why the plot above is relevant to your specific social problem.
